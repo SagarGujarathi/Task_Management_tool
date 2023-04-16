@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
-
+import SearchBar from "./components/SearchBar"
+import MainInfoBar from './components/MainInfoBar'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { } from '@fortawesome/free-solid-svg-icons'
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="main-container">
+      <SearchBar />
+      <MainInfoBar />
+      <div className="primary-task-container">
+        <div className="task-heading-container">
+          <div className="task-heading">To do</div>
+        </div>
+        <div className="main-task-container">
+          <div className="task-container">
+            <div className="task-item"></div>
+            <div className="task-item"></div>
+          </div>
+          <div className="task-container">
+            <div className="task-item"></div>
+            <div className="task-item"></div>
+          </div>
+          <div className="task-container">
+            <div className="task-item"></div>
+            <div className="task-item"></div>
+          </div>
+        </div>
+      </div>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App

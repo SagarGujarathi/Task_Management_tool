@@ -1,0 +1,91 @@
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    border: 0px;
+    outline: none;
+    box-sizing: border-box;
+}
+
+/* Inporting fonts */
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+/* Variables */
+:root {
+    --primary-background-color: #FFFFFF;
+    --primary-border-color: #E5E7F2;
+    --secondary-background-color: #f2f3f9da;
+    --task-container-width: 400px;
+}
+
+/* Actual code starts here */
+
+.main-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+    background-color: var(--secondary-background-color);
+}
+
+.primary-task-container {
+    font-family: 'Open Sans', sans-serif;
+    overflow: scroll;
+}
+
+.task-container:last-child {
+    border-right: 0px !important;
+}
+
+.main-task-container {
+    display: flex;
+    padding: 0 4rem;
+}
+
+.task-heading-container {
+    display: flex;
+    padding: 0 4rem;
+}
+
+.task-container {
+    display: flex;
+    flex-direction: column;
+    width: var(--task-container-width);
+    border-right: 1px solid var(--primary-border-color);
+    padding: 7px 7px 1rem 7px;
+    gap: 7px;
+    flex-shrink: 0;
+    height: 100%;
+}
+
+.task-heading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #E6E8F3;
+    border-radius: 3px;
+    font-size: .8rem;
+    padding: 5px 0;
+    color: #3c455ce6;
+    font-weight: 550;
+    margin-bottom: 1rem;
+}
+
+.task-item {
+    display: flex;
+    padding: .5rem;
+    background-color: var(--primary-background-color);
+    border-radius: 3px;
+    height: 200px;
+    flex-shrink: 0;
+}
+
+::-webkit-scrollbar {
+    width: 7px;
+    height: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary-border-color);
+}
