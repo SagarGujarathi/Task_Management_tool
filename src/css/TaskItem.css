@@ -1,0 +1,35 @@
+.task-item {
+    display: flex;
+    flex-direction: column;
+    height: 200px;
+    padding: 1rem;
+    background-color: var(--primary-background-color);
+    gap: 1rem;
+    border-radius: 3px;
+}
+
+.task-item-heading {
+    font-size: 1rem;
+    font-weight: 700;
+    color: rgba(0, 0, 0, 0.738);
+}
+
+.info-container {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    color: #98a2c4cd;
+    font-size: .85rem;
+}
+
+.file-container,
+.chat-container,
+.date-container {
+    align-items: center;
+    display: flex;
+    gap: 7px;
+}
+
+.tags-and-user {
+    justify-self: flex-end
+}

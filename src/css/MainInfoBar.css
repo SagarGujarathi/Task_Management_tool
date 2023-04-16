@@ -1,7 +1,7 @@
 .main-info-bar {
     display: flex;
     flex-direction: column;
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Lato', sans-serif;
     padding: 1rem 4rem 0 4rem;
     gap: 1rem;
     background-color: var(--primary-background-color);

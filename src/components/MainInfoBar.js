@@ -1,11 +1,11 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChevronRight, faFilter } from '@fortawesome/free-solid-svg-icons'
+import { faFilter } from '@fortawesome/free-solid-svg-icons'
 import '../css/MainInfoBar.css'
-function MainInfoBar() {
+function MainInfoBar(props) {
     return (
         <div className="main-info-bar">
             <div className="repo-name">
-                Support & Improvements
+                {props.projectName}
             </div>
             <div className="task-nav-bar">
                 <div className="links">
