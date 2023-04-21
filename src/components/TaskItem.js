@@ -2,23 +2,15 @@
 import '../css/TaskItem.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFile, faMessage, faCalendarDays } from '@fortawesome/free-solid-svg-icons'
-import { useDrag } from 'react-dnd'
 function TaskItem({ data }) {
-    const [{ isDragging }, drag] = useDrag(() => ({
-        type: 'taskItem',
-        item: data,
-        collect: (monitor) => ({
-            isDragging: !!monitor.isDragging()
-        })
-    }))
     return (
         <>
-            <div className="task-item" ref={drag} style={{ opacity: isDragging ? '.5' : '1' }}>
+            <div className="task-item">
                 <div className="task-item-heading">{data.taskName}</div>
                 <div className="info-container">
                     <span className="file-container">
                         <FontAwesomeIcon icon={faFile} />
-                        {data.fileCount}
+                        {data.files.length}
                     </span>
                     <span className="chat-container">
                         <FontAwesomeIcon icon={faMessage} />
@@ -31,7 +23,7 @@ function TaskItem({ data }) {
                 </div>
                 <div className="tags-and-user">
                 </div>
-            </div>
+            </div >
         </>
     )
 }

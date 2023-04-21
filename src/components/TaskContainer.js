@@ -1,27 +1,14 @@
 
-import { useDrop } from 'react-dnd'
 import TaskItem from './TaskItem'
-
-
-function TaskContainer({ data, shiftTask }) {
-    const [{ isOver }, drop] = useDrop(() => ({
-        accept: 'taskItem',
-        drop: (item, monitor) => shiftTask(item, data.id),
-        collect: (monitor) => ({
-            isOver: monitor.isOver()
-        })
-    }))
+import '../css/taskContainer.css'
+function TaskContainer({ data }) {
     return (
-        <div className="task-container" ref={drop}>
+        <div className="task-container">
             {data.taskItems.map((taskItem) => {
                 return (
                     <TaskItem data={taskItem} />
                 )
             })}
-            {isOver ?
-                <div style={{ height: '200px', backgroundColor: '#FFFFFF', opacity: '0.2' }}></div>
-                : ''
-            }
         </div>
     )
 }
