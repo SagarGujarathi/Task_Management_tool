@@ -7,3 +7,13 @@
     border-right: 1px solid var(--primary-border-color);
     flex-shrink: 0;
 }
+
+.add-task {
+    margin: 1rem 0;
+    padding: 0 .7rem;
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    color: #98a2c4cd;
+    cursor: pointer;
+}
