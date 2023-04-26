@@ -3,12 +3,11 @@ import { useState, useRef } from "react"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEllipsis, faPencil, faTrash } from '@fortawesome/free-solid-svg-icons'
 import '../css/TaskHeading.css'
-
+import HeadingEdit from "./HeadingEdit"
 function TaskHeading({ task, index, changeTaskHeadingName, deleteTaskHeading }) {
     const [vis, setVis] = useState(0)
     const [menu, setMenu] = useState(0)
     const [editMode, setEditMode] = useState(0)
-    const [newName, setNewName] = useState('');
     const settingRef = useRef()
     const dropDownRef = useRef()
     window.addEventListener('click', (e) => {
@@ -61,19 +60,7 @@ function TaskHeading({ task, index, changeTaskHeadingName, deleteTaskHeading }) 
                         {
                             editMode ?
                                 <>
-                                    <div className="blur"></div>
-                                    <div className="task-heading-edit-popup">
-                                        Enter your task status :
-                                        <input type="text" onChange={e => setNewName(e.target.value)} />
-                                        <button className="ok-button" onClick={() => {
-                                            if (newName != '') {
-                                                changeTaskHeadingName(task.id, newName)
-                                                setTimeout(() => {
-                                                    setEditMode(0)
-                                                }, 500)
-                                            }
-                                        }}>Ok</button>
-                                    </div>
+                                    <HeadingEdit index={task.id} changeTaskHeadingName={changeTaskHeadingName} setEditMode={setEditMode} />
                                 </> : ''
                         }
                     </>

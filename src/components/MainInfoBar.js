@@ -1,5 +1,3 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFilter } from '@fortawesome/free-solid-svg-icons'
 import '../css/MainInfoBar.css'
 function MainInfoBar(props) {
     return (
@@ -10,12 +8,8 @@ function MainInfoBar(props) {
             <div className="task-nav-bar">
                 <div className="links">
                     <a href="/">Board</a>
-                    <a href="/">Files</a>
                     <a href="/">Details</a>
                 </div>
-                <span>
-                    <FontAwesomeIcon icon={faFilter} /> &nbsp; Add filter
-                </span>
             </div>
         </div>
     )

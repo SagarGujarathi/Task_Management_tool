@@ -35,3 +35,13 @@
     cursor: pointer;
     color: #394158cd;
 }
+
+@media (max-width : 540px) {
+    .main-task-container {
+        padding: 1rem !important;
+    }
+
+    .heading-container {
+        padding: 0rem 1rem !important;
+    }
+}

@@ -1,1 +1,0 @@
-https://api.campx.in/exams/student-results/external?semNo=1&rollNo=22eg105c25

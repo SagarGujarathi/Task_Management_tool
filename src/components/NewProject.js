@@ -6,9 +6,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
 import TaskHeading from './TaskHeading'
+import HeadingEdit from './HeadingEdit'
 function NewProject({ data, changeTaskHeadingName, createTaskHeading, deleteTaskItem, deleteTaskHeading, editTask, createTask }) {
     const [createMode, setCreateMode] = useState(0)
-    const [name, setName] = useState('')
     return <>
         <MainInfoBar projectName={data.projectName} />
         <div className="primary-task-container">
@@ -34,19 +34,7 @@ function NewProject({ data, changeTaskHeadingName, createTaskHeading, deleteTask
                                 </div>
                             </div>
                             {createMode ? <>
-                                <div className="blur"></div>
-                                <div className="task-heading-edit-popup">
-                                    Create task status :
-                                    <input type="text" onChange={e => setName(e.target.value)} />
-                                    <button className="ok-button" onClick={() => {
-                                        if (name != '') {
-                                            setTimeout(() => {
-                                                createTaskHeading(name, data.id)
-                                                setCreateMode(0)
-                                            }, 500)
-                                        }
-                                    }}>Ok</button>
-                                </div>
+                                <HeadingEdit setEditMode={setCreateMode} index={data.id} changeTaskHeadingName={createTaskHeading} />
                             </> : ''
                             }
                         </>

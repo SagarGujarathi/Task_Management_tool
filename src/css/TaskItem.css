@@ -1,6 +1,7 @@
 .task-item {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     height: 200px;
     padding: 1rem;
     background-color: var(--primary-background-color);
@@ -82,4 +83,25 @@
 
 .task-options-dropdown div:hover {
     background-color: var(--secondary-background-color);
+}
+
+.task-item-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.tag-container {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.tag-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px;
+    font-size: .9rem;
+    border-radius: 5px;
 }

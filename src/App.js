@@ -1,7 +1,8 @@
 import SearchBar from "./components/SearchBar"
 import NewProject from "./components/NewProject"
 import { useState } from 'react'
-import { DragDropContext, Draggable } from 'react-beautiful-dnd';
+import { DragDropContext } from 'react-beautiful-dnd';
+import Sidebar from "./components/Sidebar";
 
 function App() {
 
@@ -21,7 +22,6 @@ function App() {
             comments: [],
             files: [],
             tags: ['Discovery'],
-            usersWorking: []
           }
         ]
       },
@@ -38,7 +38,6 @@ function App() {
             comments: [],
             files: [],
             tags: ['Discovery'],
-            usersWorking: []
           },
           {
             id: Math.ceil(Math.random() * 10000),
@@ -48,7 +47,6 @@ function App() {
             comments: [],
             files: [],
             tags: ['Discovery'],
-            usersWorking: []
           },
           {
             id: Math.ceil(Math.random() * 10000),
@@ -58,14 +56,13 @@ function App() {
             comments: [],
             files: [],
             tags: ['Discovery'],
-            usersWorking: []
           }
         ]
       }]
   }]
   const [taskData, setData] = useState(tasks)
 
-  function handleTaskDnD({ source, destination, type, draggableId }) {
+  function handleTaskDnD({ source, destination }) {
     setData(oldData => {
       let dataClone = [...oldData]
       let removedData;
@@ -120,7 +117,7 @@ function App() {
     }
   }
 
-  function changeTaskHeadingName(id, name) {
+  function changeTaskHeadingName(name, id) {
     setData(oldData => {
       let dataClone = [...oldData]
       dataClone.forEach((project) => {
@@ -220,8 +217,8 @@ function App() {
           createTask={createTask}
         />
       </div>
+      <Sidebar />
     </DragDropContext >
-
   )
 }
 export default App
