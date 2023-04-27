@@ -1,67 +1,21 @@
 import SearchBar from "./components/SearchBar"
 import NewProject from "./components/NewProject"
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { DragDropContext } from 'react-beautiful-dnd';
 import Sidebar from "./components/Sidebar";
-
+import { Routes, Route } from 'react-router-dom'
 function App() {
-
-  let tasks = [{
-    id: Math.ceil(Math.random() * 10000),
-    projectName: 'Support & Improvements',
-    taskDivider: [
-      {
-        id: Math.ceil(Math.random() * 10000),
-        taskName: 'To do',
-        taskItems: [
-          {
-            id: Math.ceil(Math.random() * 10000),
-            taskName: 'Spend time on positive things',
-            startDate: '04/04/2020',
-            endDate: '28/04/2020',
-            comments: [],
-            files: [],
-            tags: ['Discovery'],
-          }
-        ]
-      },
-      {
-        id: Math.ceil(Math.random() * 10000),
-        taskName: 'In progress',
-        taskItems: [
-          {
-            id: Math.ceil(Math.random() * 10000),
-            taskName: 'Complete this project',
-            startDate: '04/04/2020',
-            endDate: '28/04/2020',
-            endDate: '28/04/2020',
-            comments: [],
-            files: [],
-            tags: ['Discovery'],
-          },
-          {
-            id: Math.ceil(Math.random() * 10000),
-            taskName: 'Learn new techs!',
-            startDate: '04/04/2020',
-            endDate: '28/04/2020',
-            comments: [],
-            files: [],
-            tags: ['Discovery'],
-          },
-          {
-            id: Math.ceil(Math.random() * 10000),
-            taskName: 'Solve DSA',
-            startDate: '04/04/2020',
-            endDate: '28/04/2020',
-            comments: [],
-            files: [],
-            tags: ['Discovery'],
-          }
-        ]
-      }]
-  }]
-  const [taskData, setData] = useState(tasks)
-
+  const [taskData, setData] = useState([])
+  useEffect(() => {
+    const data = JSON.parse(localStorage.getItem('taskData'))
+    if (data != null) {
+      setData(data)
+    }
+  }, [])
+  useEffect(() => {
+    localStorage.setItem('taskData', JSON.stringify(taskData))
+  }, [taskData])
+  const [sidebar, setSidebar] = useState(false)
   function handleTaskDnD({ source, destination }) {
     setData(oldData => {
       let dataClone = [...oldData]
@@ -85,7 +39,7 @@ function App() {
     })
   }
 
-  function handleHeadingDnD({ source, destination, type, draggableId }) {
+  function handleHeadingDnD({ source, destination }) {
     setData(oldData => {
       let dataClone = [...oldData]
       let removedData;
@@ -202,22 +156,66 @@ function App() {
       return dataClone
     })
   }
+  function createProject(name) {
+    setData(oldData => {
+      let dataClone = [...oldData, {
+        id: Math.ceil(Math.random() * 10000),
+        projectName: name,
+        taskDivider: []
+      }]
+      return dataClone
+    })
+  }
+  function deleteProject(name) {
+    setData(oldData => {
+      let dataClone = [...oldData]
+      dataClone = dataClone.filter((project) => project.projectName != name)
+      return dataClone
+    })
+  }
   return (
     <DragDropContext onDragEnd={(result) => {
       handleEvent(result)
     }}>
       <div className="main-container">
-        <SearchBar />
-        <NewProject data={taskData[0]}
-          changeTaskHeadingName={changeTaskHeadingName}
-          createTaskHeading={createTaskHeading}
-          deleteTaskItem={deleteTaskItem}
-          deleteTaskHeading={deleteTaskHeading}
-          editTask={editTask}
-          createTask={createTask}
-        />
+        <SearchBar setSidebar={setSidebar} />
+        <Routes>
+          {
+            taskData.map((project, index) => {
+              return (
+                <Route path={`/${project.projectName}/${project.id}`} element={
+                  <NewProject data={project}
+                    changeTaskHeadingName={changeTaskHeadingName}
+                    createTaskHeading={createTaskHeading}
+                    deleteTaskItem={deleteTaskItem}
+                    deleteTaskHeading={deleteTaskHeading}
+                    editTask={editTask}
+                    createTask={createTask}
+                    deleteProject={deleteProject}
+                  />
+                } />
+              )
+            })
+          }
+          <Route path="/" element={
+            <>
+              <div className="error-page">
+                Welcome!
+              </div>
+            </>
+          } />
+          <Route path="*" element={
+            <>
+              <div className="error-page">
+                Page not found!
+              </div>
+            </>
+          } />
+        </Routes>
       </div>
-      <Sidebar />
+      {
+        sidebar ? <Sidebar closeSidebar={setSidebar} data={taskData} createProject={createProject} /> : ''
+      }
     </DragDropContext >
   )
 }

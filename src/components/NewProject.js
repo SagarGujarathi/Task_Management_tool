@@ -7,10 +7,10 @@ import { faPlus } from '@fortawesome/free-solid-svg-icons'
 import { useState } from 'react'
 import TaskHeading from './TaskHeading'
 import HeadingEdit from './HeadingEdit'
-function NewProject({ data, changeTaskHeadingName, createTaskHeading, deleteTaskItem, deleteTaskHeading, editTask, createTask }) {
+function NewProject({ data, changeTaskHeadingName, createTaskHeading, deleteTaskItem, deleteTaskHeading, editTask, createTask, deleteProject }) {
     const [createMode, setCreateMode] = useState(0)
     return <>
-        <MainInfoBar projectName={data.projectName} />
+        <MainInfoBar projectName={data.projectName} deleteProject={deleteProject} />
         <div className="primary-task-container">
             <Droppable
                 droppableId={`${data.id}`}

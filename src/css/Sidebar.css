@@ -28,9 +28,21 @@
     color: #9EA6BE;
     cursor: pointer;
     transition-duration: 150ms;
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+    border-left: 5px solid transparent;
 }
 
 .list-item:hover {
     background-color: #232B53;
     color: #CDCFD8 !important;
+}
+
+.add-project {
+    display: flex;
+    padding: 1.5rem 2rem;
+    gap: 1.5rem;
+    align-items: center;
+    color: #9EA6BE;
+    cursor: pointer;
 }

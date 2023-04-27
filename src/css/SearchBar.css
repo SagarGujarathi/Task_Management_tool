@@ -31,13 +31,8 @@
 
 .common-access {
     display: flex;
-    gap: 2.5rem;
+    gap: 1.5rem;
     align-items: center;
-}
-
-.common-tools {
-    display: flex;
-    gap: 1rem;
     align-items: center;
 }
 
@@ -45,4 +40,8 @@
     .search-bar-container {
         padding: 1rem !important;
     }
+}
+
+.common-access * {
+    cursor: pointer;
 }
