@@ -39,6 +39,7 @@
 @media (max-width : 540px) {
     .search-bar-container {
         padding: 1rem !important;
+        height: 3rem;
     }
 }
 

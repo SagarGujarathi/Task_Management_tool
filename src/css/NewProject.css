@@ -38,10 +38,10 @@
 
 @media (max-width : 540px) {
     .main-task-container {
-        padding: 1rem !important;
+        padding: .5rem !important;
     }
 
     .heading-container {
-        padding: 0rem 1rem !important;
+        padding: 0rem .5rem !important;
     }
 }

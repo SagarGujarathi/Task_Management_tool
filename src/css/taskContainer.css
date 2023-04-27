@@ -17,3 +17,17 @@
     color: #98a2c4cd;
     cursor: pointer;
 }
+
+@media (max-width : 540px) {
+    .task-container {
+        padding: 1rem 7px;
+    }
+}
+
+@media (max-width : 380px) {
+    .task-container {
+        padding: 1rem 7px;
+        width: 100vw !important;
+        min-width: 330px;
+    }
+}

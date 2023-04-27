@@ -24,7 +24,7 @@ function Sidebar({ closeSidebar, data, createProject }) {
                         return <>
                             <NavLink to={`/${project.projectName}/${project.id}`} >
                                 {({ isActive }) => {
-                                    return <div className="list-item" style={{ borderLeft: isActive ? '5px solid #F45050' : '', backgroundColor: '#232B53' }}>
+                                    return <div className="list-item" style={{ borderLeft: isActive ? '5px solid #F45050' : '', backgroundColor: isActive ? '#232B53' : '' }}>
                                         <FontAwesomeIcon icon={faDiagramProject} />
                                         {project.projectName}
                                     </div>

@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react'
 import { DragDropContext } from 'react-beautiful-dnd';
 import Sidebar from "./components/Sidebar";
 import { Routes, Route } from 'react-router-dom'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faBars } from '@fortawesome/free-solid-svg-icons'
 function App() {
   const [taskData, setData] = useState([])
   useEffect(() => {
@@ -201,6 +203,9 @@ function App() {
             <>
               <div className="error-page">
                 Welcome!
+                <span>
+                  Click on &nbsp; <FontAwesomeIcon icon={faBars} /> &nbsp;to create project
+                </span>
               </div>
             </>
           } />

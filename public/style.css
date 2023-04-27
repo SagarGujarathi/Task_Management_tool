@@ -56,4 +56,12 @@
     font-size: 2rem;
     height: 100%;
     font-weight: 700;
+    flex-direction: column;
+}
+
+.error-page span {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    font-size: 1rem !important;
 }

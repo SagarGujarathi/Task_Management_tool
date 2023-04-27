@@ -24,6 +24,7 @@
     align-items: center;
     color: #98a2c4cd;
     font-size: .85rem;
+    flex-wrap: wrap;
 }
 
 .file-container,
